@@ -51,6 +51,8 @@ class Oven {
       for(let j = 5; j <= time; j+=rawCookies[i].timeInterval)
         if(j < rawCookies[i].idealTime - 5) {
             console.log(`${rawCookies[i].name}, menit ke ${j}: mentah`);
+        } else if (j === rawCookies[i].idealTime - 5) {
+            console.log(`${rawCookies[i].name}, menit ke ${j}: hampir matang`);
         } else if (j === rawCookies[i].idealTime) {
             console.log(`${rawCookies[i].name}, menit ke ${j}: matang`);
         } else if (j >= rawCookies[i].idealTime) {
