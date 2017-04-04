@@ -59,11 +59,16 @@ class Oven {
       }
       if (this.count == this.container_cookies[i].max_cooked) {
         temp_cooked.push(`${this.container_cookies[i].name}, menit ke ${this.count} : hangus`)
-        temp_cooked.push('\n')
+        temp_cooked.push('---------------------------------------------------')
       }
     }
     
-    console.log(temp_cooked.join(''));
+    // for(let j=0; j<temp_cooked.length; j++){
+    //   if(temp_cooked[j] == 'undefined' || temp_cooked[j] == '')
+    //   console.log(temp_cooked[j])
+    // }
+    console.log(temp_cooked.join("\n"))
+    
   }
   bake() {
     let interval = '';
@@ -73,11 +78,11 @@ class Oven {
       max_cooking += this.container_cookies[i].max_cooked
     }
     let i = Number(interval)
-    let max = Number(max_cooking)
+    let max_cook = Number(max_cooking)
     do {
       this.status_cooking()
       this.count += i
-    } while (this.count <= max)
+    } while (this.count <= max_cook)
     // setInterval(()=>{ 
     // 	for(let i=0; i < container_cookies.length; i++){
     // 		temp_cookie.push(container_cookies[i].name)
@@ -87,14 +92,14 @@ class Oven {
 }
 
 let cookChocolateCookie = new Oven()
-let cookCheeseCookie = new Oven()
 let cookPeanutCookie = new Oven()
-cookCheeseCookie.insertCookie(new CheeseCookie({
+let cookCheeseCookie = new Oven()
+cookChocolateCookie.insertCookie(new ChocolateCookie({
   interval : 5,
-  name: 'Cheese Cookie',
-  half_cooked: 15,
-  finish_cooked: 30,
-  max_cooked: 35
+  name: 'Chocolate Cookie',
+  half_cooked: 10,
+  finish_cooked: 20,
+  max_cooked: 25
 }))
 cookPeanutCookie.insertCookie(new PeanutCookie({
   interval : 5,
@@ -103,14 +108,14 @@ cookPeanutCookie.insertCookie(new PeanutCookie({
   finish_cooked: 35,
   max_cooked: 40
 }))
-cookChocolateCookie.insertCookie(new ChocolateCookie({
+cookCheeseCookie.insertCookie(new CheeseCookie({
   interval : 5,
-  name: 'Chocolate Cookie',
-  half_cooked: 10,
-  finish_cooked: 20,
-  max_cooked: 25
+  name: 'Cheese Cookie',
+  half_cooked: 15,
+  finish_cooked: 30,
+  max_cooked: 35
 }))
 //console.log(cookChocolateCookie.container_cookies)
 cookChocolateCookie.bake()
-cookCheeseCookie.bake()
 cookPeanutCookie.bake()
+cookCheeseCookie.bake()
