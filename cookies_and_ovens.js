@@ -53,12 +53,12 @@ class Oven {
             console.log(`${rawCookies[i].name}, menit ke ${j}: mentah`);
         } else if (j === rawCookies[i].idealTime) {
             console.log(`${rawCookies[i].name}, menit ke ${j}: matang`);
-        } else if (j > rawCookies[i].idealTime) {
+        } else if (j >= rawCookies[i].idealTime) {
             console.log(`${rawCookies[i].name}, menit ke ${j}: hangus`);
         }
     }
   }
-  
+
 }
 
 let oven = new Oven();
