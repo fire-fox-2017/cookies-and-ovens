@@ -102,3 +102,16 @@ class Oven{
 
 let oven = new Oven(30);
 oven.panggang();
+
+
+// Release 2
+// 1. Apakah code kamu sudah cukup DRY?
+//    Code saya sudah cukup DRY, meskipun terdapat redundant override method statusCookie di class parent dan child.
+// 2. Apakah class kamu mengikuti hukum Law of Demeter?
+//    Class saya sudah mengikuti Law of Demeter dimana class peanutButterCookie, chesseCookie, dan chocolateCookie dapat
+//    akses atribut dan method di class Cookie dengan menggunakan inheritance.
+// 3. Apakah class kamu sudah bersifat orthogonal?
+//    class saya masih ada yang bergantung dengan class lain, yaitu  class peanutButterCookie, chesseCookie, dan chocolateCookie
+//    yang memiliki hubungan inheritance dengan class Cookie
+// 4. Apakah kamu mengekspos bagian kecil dari setiap class atau semua properti bersifat public?
+//    semua properti tidak bersifat public.
