@@ -8,6 +8,8 @@
 //
 //
 // Your code here
+
+
 class Cookies {
   constructor(data) {
     this.interval = data.interval;
@@ -44,6 +46,12 @@ class Oven {
   insertCookie(data) {
     this.container_cookies.push(data)
   }
+  stripUndefined (arr) {
+    return arr.reduce(function (result, item) {
+      result.push( Array.isArray(item) && !item.length ? stripUndefined(item) : item );
+      return result;
+    }, []);
+  }
   status_cooking() {
     let temp_cooked = []
     for (let i = 0; i < this.container_cookies.length; i++) {
@@ -59,16 +67,19 @@ class Oven {
       }
       if (this.count == this.container_cookies[i].max_cooked) {
         temp_cooked.push(`${this.container_cookies[i].name}, menit ke ${this.count} : hangus`)
-        temp_cooked.push('---------------------------------------------------')
+        temp_cooked.push('\n---------------------------------------------------')
       }
     }
+    // let arr;
+    // let tmp = '';
+    // //for(let j=0; j<temp_cooked.length; j++){
+      
+    //   arr = temp_cooked[0].filter(function(entry) { return entry.trim() != ''; })
+    //   tem += arr
+    //}
+    //console.log(temp_cooked.join("\n")) 
     
-    // for(let j=0; j<temp_cooked.length; j++){
-    //   if(temp_cooked[j] == 'undefined' || temp_cooked[j] == '')
-    //   console.log(temp_cooked[j])
-    // }
-    console.log(temp_cooked.join("\n"))
-    
+    console.log(this.stripUndefined(temp_cooked).join(''))
   }
   bake() {
     let interval = '';
@@ -97,23 +108,23 @@ let cookCheeseCookie = new Oven()
 cookChocolateCookie.insertCookie(new ChocolateCookie({
   interval : 5,
   name: 'Chocolate Cookie',
-  half_cooked: 10,
+  half_cooked: 15,
   finish_cooked: 20,
   max_cooked: 25
 }))
 cookPeanutCookie.insertCookie(new PeanutCookie({
   interval : 5,
   name: 'Peanut Cookie',
-  half_cooked: 25,
+  half_cooked: 30,
   finish_cooked: 35,
   max_cooked: 40
 }))
 cookCheeseCookie.insertCookie(new CheeseCookie({
   interval : 5,
   name: 'Cheese Cookie',
-  half_cooked: 15,
-  finish_cooked: 30,
-  max_cooked: 35
+  half_cooked: 20,
+  finish_cooked: 25,
+  max_cooked: 30
 }))
 //console.log(cookChocolateCookie.container_cookies)
 cookChocolateCookie.bake()
