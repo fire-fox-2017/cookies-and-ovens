@@ -19,21 +19,21 @@ class Cookie {
 }
 
 class CheeseCookie extends Cookie {
-  // constructor(timeInterval, maxTime, idealTime, name) {
-  //   super(timeInterval, maxTime, idealTime, name);
-  // }
+  constructor(timeInterval, maxTime, idealTime, name) {
+    super(timeInterval, maxTime, idealTime, name);
+  }
 }
 
 class PeanutCookie extends Cookie {
-  // constructor(timeInterval, maxTime, idealTime, name) {
-  //   super(timeInterval, maxTime, idealTime, name);
-  // }
+  constructor(timeInterval, maxTime, idealTime, name) {
+    super(timeInterval, maxTime, idealTime, name);
+  }
 }
 
 class ChocolateCookie extends Cookie {
-  // constructor(timeInterval, maxTime, idealTime, name) {
-  //   super(timeInterval, maxTime, idealTime, name);
-  // }
+  constructor(timeInterval, maxTime, idealTime, name) {
+    super(timeInterval, maxTime, idealTime, name);
+  }
 }
 
 class Oven {
@@ -48,7 +48,7 @@ class Oven {
     }
     
     for(let i = 0; i < rawCookies.length; i++) {
-      for(let j = 5; j <= time; j+=rawCookies[i].timeInterval)
+      for(let j = rawCookies[i].timeInterval; j <= time; j+=rawCookies[i].timeInterval)
         if(j < rawCookies[i].idealTime - 5) {
             console.log(`${rawCookies[i].name}, menit ke ${j}: mentah`);
         } else if (j === rawCookies[i].idealTime - 5) {
@@ -64,9 +64,9 @@ class Oven {
 }
 
 let oven = new Oven();
-let keju = new CheeseCookie(5, 15, 20, 'Kue Keju');
+let keju = new CheeseCookie(6, 15, 20, 'Kue Keju');
 let kacang = new PeanutCookie(5, 20, 25, 'Kue Kacang');
 let coklat = new ChocolateCookie(5, 25, 30, 'Kue Coklat');
 
 
-oven.bake([keju, kacang, coklat], 35)
+oven.bake([keju, kacang, coklat], 35);
