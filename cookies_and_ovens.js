@@ -49,9 +49,9 @@ class Oven {
     
     for(let i = 0; i < rawCookies.length; i++) {
       for(let j = rawCookies[i].timeInterval; j <= time; j+=rawCookies[i].timeInterval)
-        if(j < rawCookies[i].idealTime - 5) {
+        if(j < rawCookies[i].idealTime - rawCookies[i].timeInterval) {
             console.log(`${rawCookies[i].name}, menit ke ${j}: mentah`);
-        } else if (j === rawCookies[i].idealTime - 5) {
+        } else if (j === rawCookies[i].idealTime - rawCookies[i].timeInterval) {
             console.log(`${rawCookies[i].name}, menit ke ${j}: hampir matang`);
         } else if (j === rawCookies[i].idealTime) {
             console.log(`${rawCookies[i].name}, menit ke ${j}: matang`);
@@ -64,7 +64,7 @@ class Oven {
 }
 
 let oven = new Oven();
-let keju = new CheeseCookie(6, 15, 20, 'Kue Keju');
+let keju = new CheeseCookie(6, 15, 24, 'Kue Keju');
 let kacang = new PeanutCookie(5, 20, 25, 'Kue Kacang');
 let coklat = new ChocolateCookie(5, 25, 30, 'Kue Coklat');
 
