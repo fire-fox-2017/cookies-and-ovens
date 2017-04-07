@@ -4,11 +4,11 @@
 //   class Cookie, ChocolateCookie, CheeseCookie, PeanutButterCookie.
 
 // - What attributes will each class have?
-//   class Cookie :
-//   class ChocolateCookie :
-//   class CheeseCookie :
-//   class PeanutButterCookie :
-//   class Oven :
+//   class Cookie : cooking_time, status, ripeTime
+//   class ChocolateCookie : time, ripeTime, name
+//   class CheeseCookie : time, ripeTime, name
+//   class PeanutButterCookie : time, ripeTime, name
+//   class Oven : tempCookie, chocolate, cheese, peanut
 
 // - What interface will each class provide?
 //
@@ -99,8 +99,8 @@ class Oven {
         return this._tempCookie
     }
 
-    bake(time) {
-        for (let i = 5; i <= time; i += 5) {
+    bake(time, timeInterval) {
+        for (let i = timeInterval; i <= time; i += timeInterval) {
             for (let j = 0; j < this._tempCookie.length; j++) {
                 console.log(`${this._tempCookie[j]._name}, menit ke ${i} : ${this._tempCookie[j].cekStatus(i)} \n`);
             }
@@ -110,4 +110,4 @@ class Oven {
 
 let oven = new Oven()
 oven.composition()
-oven.bake(30)
+oven.bake(30, 7)
