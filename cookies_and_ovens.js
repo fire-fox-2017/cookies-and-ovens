@@ -10,7 +10,9 @@
 //
 // Your code here
 class Cake {
-  constructor() {
+  constructor(name,matang) {
+    this.name=name;
+    this.matang=matang;
     this.status='mentah';
   }
 
@@ -18,23 +20,20 @@ class Cake {
 
 class chocolateCake extends Cake{
   constructor(name,matang) {
-    super();
-    this.name=name;
-    this.matang=matang;
+    super(name,matang);
+
   }
 }
 class cheeseCake extends Cake{
   constructor(name,matang) {
-    super();
-    this.name=name;
-    this.matang=matang;
+    super(name,matang);
+
   }
 }
 class peanutCake extends Cake{
   constructor(name,matang) {
-    super();
-    this.name=name;
-    this.matang=matang;
+    super(name,matang);
+
   }
 }
 
@@ -92,9 +91,9 @@ class Oven {
   }
 
   bake(){
-    this.time=this.time+5;
+    this.time+=5;
     for(let i=0;i<this.groupCake.length;i++){
-      if(this.time+5===this.groupCake[i].matang){
+      if(this.time+5==this.groupCake[i].matang){
         this.groupCake[i].status='hampir matang';
       }
       if(this.time===this.groupCake[i].matang){
