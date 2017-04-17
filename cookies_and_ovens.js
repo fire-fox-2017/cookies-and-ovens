@@ -70,17 +70,17 @@ class Oven {
       }
     }
   }
-  get showCookies(){
+  showCookies(){
     let temp = [];
     for(let i=0;i<this._arrayOfCookies.length;i++){
       temp.push(`${this._arrayOfCookies[i]._name} (Status: ${this._arrayOfCookies[i]._status})`)
     }
     if (temp.length===0){
-      return console.log('There\'s no cookie in my oven\n===================================================================')
+      console.log('There\'s no cookie in my oven\n===================================================================')
     } else if (temp.length===1){
-      return console.log(`Cookie in my oven is:\n${temp.join('\n')}\n===================================================================`);
+      console.log(`Cookie in my oven is:\n${temp.join('\n')}\n===================================================================`);
     } else {
-      return console.log(`Cookies in my oven are:\n${temp.join('\n')}\n===================================================================`);
+      console.log(`Cookies in my oven are:\n${temp.join('\n')}\n===================================================================`);
     }
   }
 }
@@ -90,4 +90,4 @@ oven.prepareCookie('choco');
 oven.prepareCookie('peanut');
 oven.prepareCookie('cheese');
 oven.bake(30);
-oven.showCookies;
+oven.showCookies();
